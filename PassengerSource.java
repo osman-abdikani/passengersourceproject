@@ -14,9 +14,18 @@ public class PassengerSource {
         Passenger passenger = new Passenger(pickup, destination);
         return company.scheduleVehicle(passenger);
     }
+
+    // 
+    public static void main(String[] args) {
+        Company company = new Company();
+        PassengerSource source = new PassengerSource(company);
+
+        boolean success = source.requestPickup();
+        System.out.println("Pickup requested: " + (success ? "Scheduled" : "Failed"));
+    }
 }
 
-// Supporting classes below (in same file)
+// Supporting classes below
 
 class Company {
     public boolean scheduleVehicle(Passenger p) {
